@@ -326,7 +326,8 @@ A value of 12 appears to give an optimal result. The figure below shows the rela
 ```r
 # Variable importance plot
 # library(randomForest)
-randomForest::varImpPlot(models[[m]]$fit.rf, main = "Variable Importance", col="blue", cex=0.8)
+randomForest::varImpPlot(models[[m]]$fit.rf, main = "Variable Importance", 
+                         col="blue", cex=0.8)
 ```
 
 ![plot of chunk diagnostic_model1](figure/diagnostic_model1-1.png) 
@@ -532,7 +533,8 @@ print(randomForest::importance(final))
 ```r
 # Importance plot
 # library(randomForest)
-randomForest::varImpPlot(final, n.var = models2[[m]]$nVars, main="Variable Importance", pch=19, col="blue", cex=0.8)
+randomForest::varImpPlot(final, n.var = models2[[m]]$nVars, main="Variable Importance", 
+                         pch=19, col="blue", cex=0.8)
 ```
 
 ![plot of chunk diagnostic_model5](figure/diagnostic_model5-1.png) 
@@ -545,7 +547,7 @@ To assess the expected prediction performance on the test set we look at the plo
 
 The margin of a data point is the proportion of votes for the correct class minus the maximum proportion of votes for the other classes. If the margin is positive it means the data point is correctly classified. One means perfect classification, zero means that the model does not clearly classify, whereas minus one would mean a fully imperfect classification.
 
-The histogram shows that forthe vast majority of data points are perfectly classified.
+The histogram shows that the vast majority of data points are perfectly classified.
 
 
 ```r
@@ -646,7 +648,7 @@ pml_write_files = function(x){
     n = length(x)
     for(i in 1:n){
         filename = paste0("problem_id_",i,".txt")
-#        write.table(x[i],file=filename,quote=FALSE,row.names=FALSE,col.names=FALSE)
+        write.table(x[i],file=filename,quote=FALSE,row.names=FALSE,col.names=FALSE)
     }
 }
 pml_write_files(answers)
